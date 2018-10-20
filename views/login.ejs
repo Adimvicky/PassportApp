@@ -1,0 +1,27 @@
+<%- include('partials/_header.ejs') %>
+
+
+ <div class='container text-center'>
+    <div class='row'>
+        
+   
+        <form method="POST" action="/users/login" class="form-signin">
+            
+          <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+          <label for="inputEmail" class="sr-only">Username</label>
+          <input type="text" id="inputEmail" name='username' class="form-control" placeholder="username" required autofocus>
+          <br>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" id="inputPassword" name='password' class="form-control" placeholder="Password" required>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          <br>          
+          <p>No account? <a href="/users/register">Register</a></p>
+          <br>
+          <%- messages() %>
+
+          <p class="mt-5 mb-3 text-muted">&copy; PassportApp 2018</p>
+       </form>
+    </div>
+    </div>   
+
+<%- include('partials/_footer.ejs') %>

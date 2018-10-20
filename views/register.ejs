@@ -1,0 +1,43 @@
+<%- include('partials/_header.ejs') %>
+ 
+<div class='container text-center'>
+<div class='row'>
+ <% if (locals.errors){ %>
+    <div class="col-sm">
+      <% errors.forEach((error) => { %>
+           <div class="alert alert-danger"><%= error.msg %></div>
+      <% }) %>
+      </div>
+ <%  } %>
+
+  <div class="col-sm">
+  <%- messages() %> 
+      <form method='POST' action='/users/register' class="form-signin">
+          <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+          <h1 class="h3 mb-3 font-weight-normal">User Registration</h1>
+          <label for="inputEmail" class="sr-only">Name</label>
+          <input type="text"  name='name' value="<%=(locals.name)?name:''%>" class="form-control" placeholder="Name" required autofocus>
+          <br>
+          <label for="inputEmail" class="sr-only">Email</label>
+          <input type="email" name='email' value="<%=(locals.email)?email:''%>" class="form-control" placeholder="email" required autofocus>
+          <br>
+          <label for="inputEmail" class="sr-only">Username</label>
+          <input type="text" name='username' value="<%=(locals.username)?username:''%>" class="form-control" placeholder="Username" required autofocus>
+          <br>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password"  name='password' value="<%=(locals.password)?password:''%>" class="form-control" placeholder="Password" required>
+          <br>
+           <label for="inputPassword" class="sr-only">Confirm password</label>
+          <input type="password" name='password2' value="<%=(locals.password2)?password2:''%>" class="form-control" placeholder="confirm password" required>
+          <br>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+          <p>Have an account? <a href="/users/login">Login</a></p>
+
+          <p class="mt-5 mb-3 text-muted">&copy; PassportApp 2018</p>
+       </form>
+    </div>
+
+    
+</div>
+</div>
+<%- include('partials/_footer.ejs') %>
